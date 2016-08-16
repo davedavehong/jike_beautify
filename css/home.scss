@@ -1,0 +1,171 @@
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+  box-shadow: $shadow;
+}
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('../common/fonts/bar/iconfont.eot'); /* IE9*/
+  src: url('../common/fonts/bar/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../common/fonts/bar/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('../common/fonts/bar/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('../common/fonts/bar/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.icon-discovershape:before {
+  content: "\e77d";
+}
+
+.icon-myshape:before {
+  content: "\e793";
+}
+
+.icon-detail:before {
+  content: "\e7b3";
+}
+
+.navbar-fixed-top {
+  height: 50px;
+  @include gradient-vertical($start-color: #fff, $end-color: #fafafa);
+  @include box-shadow(0 1px 3px #dddddd);
+  opacity: 0.97;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  h4 {
+    color: #646464;
+  }
+  .glyphicon-search, .placeholder {
+    line-height: 1.1;
+    margin: 10px;
+    font-size: 18px;
+    color: #b1b1b1;
+    width: 40px;
+    height: 20px;
+    text-align: right;
+  }
+}
+
+#waterfall {
+  margin-top: 50px;
+  margin-bottom: 60px;
+  .popTopic {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #f5f5f5;
+    padding-left: 20px;
+    padding-right: 20px;
+    .title {
+      padding-top: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(210, 210, 210, 0.2);
+      color: #939393;
+      letter-spacing: 2px;
+      .glyphicon-menu-right {
+        float: right;
+      }
+    }
+    .cont {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      div.gist {
+        padding-bottom: 10px;
+        font-size: 16px;
+      }
+      div.refer {
+        padding-top: 10px;
+        color: #bdbdbd;
+      }
+      img {
+        float: right;
+        height: 60px;
+      }
+    }
+  }
+
+  .post {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 20px;
+    div.title {
+      display: inline-block;
+      img {
+        border-radius: 5px;
+        float: left;
+        height: 40px;
+        width: 40px;
+      }
+      div {
+        margin-left: 50px;
+        height: 20px;
+        line-height: 20px;
+        color: #7f7f7f;
+        font-size: 13px;
+      }
+
+    }
+    .contArea {
+      div.text {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #000000;
+        letter-spacing: 1px;
+      }
+      img {
+        min-width: 250px;;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.navbar-fixed-bottom {
+  border-top: 1px solid rgba(235, 235, 235, 0.6);
+  text-align: center;
+  height: 60px;
+  background-color: #fff;
+  padding: 0 1px;
+  .wrapper {
+    height: 60px;
+    margin: 0 1px;
+    div.iconfont {
+      color: #afafaf;
+      font-family: "iconfont", serif !important;
+      font-size: 26px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    div.alt {
+      color: #afafaf;
+      font-size: 12px;
+    }
+  }
+
+  li.active {
+    @include gradient-vertical($start-color: rgba(219, 219, 219, 0.8), $end-color: rgba(255, 255, 255, 0));
+    .wrapper {
+      @include gradient-vertical($start-color: #f2f2f2, $end-color: #fff);
+    }
+
+    div.iconfont {
+      color: #696969;
+    }
+    div.alt {
+
+      color: #696969;
+    }
+  }
+}

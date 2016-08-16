@@ -9,6 +9,8 @@
 ###预览图
 
 [锤子阅读预览图](http://elephstor.com/source/jike/1.png)
+
 [即可消息页预览图](http://elephstor.com/source/jike/2.png)
+
 [改造后的预览图](http://elephstor.com/source/jike/3.png)
 
